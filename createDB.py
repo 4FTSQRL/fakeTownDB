@@ -46,7 +46,7 @@ def createPeople():
     con = sqlite3.connect(dbPath)
     
     # Define cursor
-    cur = con.cursor
+    cur = con.cursor()
     
     # Create query table
     pplQuery = """
