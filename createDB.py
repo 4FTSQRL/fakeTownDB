@@ -68,6 +68,52 @@ def createPeople():
 
 # Populate people function
 def popPeople():
+    """
+    Objective: Populates the people table with 500 fake people
+    """
+    
+    # Open connection
+    con = sqlite3.connect(dbPath)
+    
+    # Cursor
+    cur = con.cursor()
+    
+    # Create query to add a person
+    addPerson = """
+        INSERT INTO people
+        (
+            name,
+            age,
+            address
+        )
+        VALUES(?, ?, ?)
+    """
+    
+    # Make new people with faker
+    fake = Faker("en_CA")
+    
+    # 500 people
+    for fakePerson in range(500):
+        fP = (
+            # Get name
+            fake.name(),
+            
+            # Get Age
+            fake.random_int(min=0, max=110),
+            
+            # Address
+            fake.street_address()
+        )
+        
+        # Execute
+        cur.execute(addPerson, fP)
+        
+    # Commit
+    con.commit()
+    
+    # Close
+    con.close()
+    
     # Return Statement
     return
 # Python Incantation
