@@ -96,6 +96,24 @@ def printAdults():
     # Return statement
     return
 
+# adults to csv function
+def adultsToCSV():
+    """
+    Objective: Creates a pandas data frame and converts to a csv file
+    """
+    
+    # Call getAdults
+    adults = getAdults()
+    
+    # Create dataframe
+    aDF = pandas.DataFrame(adults)
+    
+    # Add Column Names
+    aDF.columns = ["Name", "Age", "Marital Status"]
+    
+    # Export to csv
+    aDF.to_csv('maritalStatus.csv')
+    
 # Python Incantation
 if __name__ == "__main__":
     main()
