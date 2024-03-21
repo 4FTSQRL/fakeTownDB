@@ -22,8 +22,8 @@ from random import choice
 
 # Main Function
 def main():
-    # Call print Adults
-    printAdults()
+    # Call userChoice function
+    userChoice()
     
     # Return statement
     return None
@@ -127,18 +127,20 @@ def userChoice():
     # While loop
     while valid == False:
         # Prompt user
-        choice = input("Select one of the following:"
-                    "1. Print Marital Status of Adults over 20 in Fake Town"
-                    "2. Export Marital Statuses to CSV file"
-                    "3. Exit")
+        choice = int(input("Select one of the following:\n"
+                    "1. Print Marital Status of Adults over 20 in Fake Town\n"
+                    "2. Export Marital Statuses to CSV file\n"
+                    "3. Exit\n"))
         
         # Check if choice is 1
         if choice == 1:
+            # Change Valid to True
+            valid = True
+            
             # Call printAdults function
             printAdults()
             
-            # Change Valid to True
-            valid = True
+            
             
         # Check if choice is 2
         elif choice == 2:
