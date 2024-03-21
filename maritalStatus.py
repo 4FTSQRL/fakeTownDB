@@ -114,6 +114,53 @@ def adultsToCSV():
     # Export to csv
     aDF.to_csv('maritalStatus.csv')
     
+
+# user choice function
+def userChoice():
+    """
+    Objectives: Ask user if they want to print adults' marital status or export to csv
+    """
+    
+    # Valid for valid input
+    valid = False
+    
+    # While loop
+    while valid == False:
+        # Prompt user
+        choice = input("Select one of the following:"
+                    "1. Print Marital Status of Adults over 20 in Fake Town"
+                    "2. Export Marital Statuses to CSV file"
+                    "3. Exit")
+        
+        # Check if choice is 1
+        if choice == 1:
+            # Call printAdults function
+            printAdults()
+            
+            # Change Valid to True
+            valid = True
+            
+        # Check if choice is 2
+        elif choice == 2:
+            # Call adultsToCSV function
+            adultsToCSV()
+            
+            # Change Valid to True
+            valid = True
+        
+        # Check if choice is 3
+        elif choice == 3:
+            # Exit
+            exit()
+            
+            # Change Valid to true
+            valid = True
+        
+        # Else statement
+        else:
+            # Make sure Valid is False
+            valid = False
+        
 # Python Incantation
 if __name__ == "__main__":
     main()
