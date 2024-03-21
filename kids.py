@@ -23,6 +23,8 @@ from random import choice
 
 # Main function
 def main():
+    # Call kids csv
+    kidToCSV()
     # Return Statement
     return
 
@@ -94,7 +96,7 @@ def getChildren():
                 
                 # Gets name, age, and hobby and adds to kids
                 kids.append((person[1], person[2], nerd))
-    
+                
     # Commit
     con.commit()
     
@@ -103,6 +105,22 @@ def getChildren():
     
     # Return the adults list
     return kids
+
+def kidToCSV():
+    """
+    Objectives: exports to CSV
+    """
+    
+    kids = getChildren()
+    
+    # Creates pandas data frame
+    kidDF = pandas.DataFrame(kids)
+    
+    # Create columns
+    kidDF.columns = ["Name", "Age", "Hobby"]
+    
+    # export to csv
+    kidDF.to_csv('kids.csv')
 
 # Python incantation
 if __name__ == "__main__":
