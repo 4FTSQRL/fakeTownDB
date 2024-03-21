@@ -24,6 +24,9 @@ from faker import Faker
 
 # Main Function
 def main():
+    # Call user option functin
+    userChoice()
+    
     # Return Statement
     return
 
@@ -127,7 +130,93 @@ def careerStatus():
     # Return peopleNCarStat list
     return peopleNCarStat
 
+# Print Career function
+def printCareer():
+    """
+    Objectives: Prints career and name and whatnot
+    """
+    
+    # Call careerStat
+    people = careerStatus()
+    
+    # For loop to print each person
+    for person in people:
+        
+        # Print
+        print(f"{person[0]} is {person[1]}. Their career is {person[2]}, and career status is {person[3]}")
 
+    # Return statement
+    return
+
+# career to csv function
+def careerToCSV():
+    """
+    Objectives: exports people and career information to csv file
+    """
+    
+    # Call careerStatus
+    people = careerStatus()
+    
+    # Create pandas data frame
+    peopleDF = pandas.DataFrame(people)
+    
+    # Create columns
+    peopleDF.columns = ["Name", "Age", "Career", "Career Status"]
+    
+    # Export to csv
+    peopleDF.to_csv('career.csv')
+    
+    # Return
+    return
+
+# user choice function
+def userChoice():
+    """
+    Objectives: Ask user if they want to print the career information or export to csv
+    """
+    
+    # Valid for valid input
+    valid = False
+    
+    # While loop
+    while valid == False:
+        # Prompt user
+        choice = int(input("Select one of the following:\n"
+                    "1. Print Career Information\n"
+                    "2. Export Career Information to CSV file\n"
+                    "3. Exit\n"))
+        
+        # Check if choice is 1
+        if choice == 1:
+            # Change Valid to True
+            valid = True
+            
+            # use print career function
+            printCareer()
+            
+            
+            
+        # Check if choice is 2
+        elif choice == 2:
+            # Call careertoCSV function
+            careerToCSV()
+            
+            # Change Valid to True
+            valid = True
+        
+        # Check if choice is 3
+        elif choice == 3:
+            # Exit
+            exit()
+            
+            # Change Valid to true
+            valid = True
+        
+        # Else statement
+        else:
+            # Make sure Valid is False
+            valid = False
+            
 # Python Incantation
 if __name__ == "__main__":
     main()
