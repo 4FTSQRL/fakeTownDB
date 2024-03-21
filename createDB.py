@@ -15,8 +15,6 @@ Usage:
 import os
     # sqlite3
 import sqlite3
-    # Datetime
-from datetime import datetime
     # Faker
 from faker import Faker
 
@@ -34,8 +32,39 @@ def main():
 
 # Create people function
 def createPeople():
+    """
+    Objective: Creates a people table in the database
+    """
+    
+    # Open a connection to the database
+    con = sqlite3.connect(dbPath)
+    
+    # Define cursor
+    cur = con.cursor
+    
+    # Create query table
+    pplQuery = """
+        CREATE TABLE IF NOT EXISTS people
+        (
+            id  INTEGER PRIMARY KEY,
+            name    TEXT NOT NULL,
+            age     INTEGER,
+            address TEXT NOT NULL
+        );
+    """
+    
+    # Execute
+    cur.execute(pplQuery)
+    
+    # Commit
+    con.commit()
+    
+    # Close connection
+    con.close()
+    
     # Return statement
-    return
+        # Return the query
+    return pplQuery
 
 # Populate people function
 def popPeople():
