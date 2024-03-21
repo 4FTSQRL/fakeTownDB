@@ -26,6 +26,12 @@ dbPath = os.path.join(scriptDirectory, 'fakeTown.db')
 
 # Main function
 def main():
+    # Call createPeople Function
+    createPeople()
+    
+    # Call popPeople Function
+    popPeople()
+    
     # Return None
     return None
 
