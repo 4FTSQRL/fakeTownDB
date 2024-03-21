@@ -22,8 +22,8 @@ from random import choice
 
 # Main Function
 def main():
-    # Call getadults
-    getAdults()
+    # Call print Adults
+    printAdults()
     
     # Return statement
     return None
@@ -78,6 +78,23 @@ def getAdults():
     
     # Return the adults list
     return adults
+
+# Print Adults Function
+def printAdults():
+    """
+    Objective: Prints the adults and explains if they were divorced, married, single, or widowed, as well as their age
+    """
+    
+    # Call getAdults
+    adults = getAdults()
+    
+    # For loop
+    for adult in adults:
+        # print
+        print(f"{adult[0]} is {adult[1]}. Their marital status is {adult[2].lower()}.")
+        
+    # Return statement
+    return
 
 # Python Incantation
 if __name__ == "__main__":
