@@ -8,7 +8,8 @@ Description: Adding a GUI
 
 # Import Statements
 from tkinter import *
-from maritalStatus import printAdults, getAdults
+from maritalStatus import getAdults
+from kids import getChildren
 
 # Main function
 def main():
@@ -103,6 +104,20 @@ def msBtnClick():
     # Run the root
     root.mainloop()
 
+
+# Function for Kids Button Click
+def kdBtnClick():
+    # Get the children stats
+    kids = getChildren()
+    
+    # Create a new root
+    root = Tk()
+    
+    # Create a new geometry
+    root.geometry()
+    
+    # Run the root
+    root.mainloop()
 # Python Incantation
 if __name__ == "__main__":
     main()
