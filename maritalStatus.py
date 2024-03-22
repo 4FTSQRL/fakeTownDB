@@ -64,11 +64,14 @@ def getAdults():
         # Check age
         if person[2] >= 20:
             
-            # Get marital status
-            maritalStatus = choice(("Married", "Single", "Divorced", "Widowed"))
-            
-            # Gets name, age, and marital status and adds to adults
-            adults.append((person[1], person[2], maritalStatus))
+            # Check status
+            if person[4] == "Alive":
+                
+                # Get marital status
+                maritalStatus = choice(("Married", "Single", "Divorced", "Widowed"))
+                
+                # Gets name, age, and marital status and adds to adults
+                adults.append((person[1], person[2], maritalStatus))
     
     # Commit
     con.commit()
