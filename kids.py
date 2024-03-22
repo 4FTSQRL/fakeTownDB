@@ -62,40 +62,43 @@ def getChildren():
         # Check age
         if person[2] <= 17:
             
-            # Get hobby category
-            hobbyCat = choice(("Music", "Sports", "Creative", "Nerd"))
-            
-            # Check to if hobby category is music
-            if hobbyCat == "Music":
-                # Get an instrument
-                instrument = choice(("Piano", "Guitar", "Drums", "Bass", "Orchestral Instrument", "More than one instrument"))
+            # Check if alive
+            if person[4] == "Alive":
                 
-                # Gets name, age, and hobby and adds to kids
-                kids.append((person[1], person[2], instrument))
+                # Get hobby category
+                hobbyCat = choice(("Music", "Sports", "Creative", "Nerd"))
                 
-            # Check if hobby category is sports
-            elif hobbyCat == "Sports":
-                # Get a sport
-                sport = choice(("Hockey", "Basketball", "Baseball", "Football", "Soccer", "Ringette"))
-                
-                # Gets name, age, and hobby and adds to kids
-                kids.append((person[1], person[2], sport))
-                
-            # Check if hobby category is Creative
-            elif hobbyCat == "Creative":
-                # Get an art
-                art = choice(("Sketching", "Painting", "Writing", "Sewing", "Pottery", "Dance"))
-                
-                # Gets name, age, and hobby and adds to kids
-                kids.append((person[1], person[2], art))
-                
-            # Check if hobby cateogry is nerd
-            elif hobbyCat == "Nerd":
-                # Get a nerdy hobby
-                nerd = choice(("Reading", "Programming :P", "Video Games", "Lego", "Movies", "Board Games"))
-                
-                # Gets name, age, and hobby and adds to kids
-                kids.append((person[1], person[2], nerd))
+                # Check to if hobby category is music
+                if hobbyCat == "Music":
+                    # Get an instrument
+                    instrument = choice(("Piano", "Guitar", "Drums", "Bass", "Orchestral Instrument", "More than one instrument"))
+                    
+                    # Gets name, age, and hobby and adds to kids
+                    kids.append((person[1], person[2], instrument))
+                    
+                # Check if hobby category is sports
+                elif hobbyCat == "Sports":
+                    # Get a sport
+                    sport = choice(("Hockey", "Basketball", "Baseball", "Football", "Soccer", "Ringette"))
+                    
+                    # Gets name, age, and hobby and adds to kids
+                    kids.append((person[1], person[2], sport))
+                    
+                # Check if hobby category is Creative
+                elif hobbyCat == "Creative":
+                    # Get an art
+                    art = choice(("Sketching", "Painting", "Writing", "Sewing", "Pottery", "Dance"))
+                    
+                    # Gets name, age, and hobby and adds to kids
+                    kids.append((person[1], person[2], art))
+                    
+                # Check if hobby cateogry is nerd
+                elif hobbyCat == "Nerd":
+                    # Get a nerdy hobby
+                    nerd = choice(("Reading", "Programming :P", "Video Games", "Lego", "Movies", "Board Games"))
+                    
+                    # Gets name, age, and hobby and adds to kids
+                    kids.append((person[1], person[2], nerd))
                 
     # Commit
     con.commit()
