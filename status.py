@@ -33,6 +33,8 @@ def userChoice():
                    "2. Export a list of people who are deceased to CSV\n"
                    "3. Exit\n"
                    "Enter your choice: ")
+    
+    # Check if choice is 1
 
 # Function to get citzens who are alive
 def getAlive():
@@ -74,6 +76,22 @@ def getAlive():
     # Return Statement
     alive
 
+# Export Alive to csv
+def aliveToCSV():
+    """
+    Objectives: exports to CSV
+    """
+    # Get alive
+    alive = getAlive()
+    
+    # Creates pandas data frame
+    aliveDF = pandas.DataFrame(alive)
+    
+    # Create columns
+    aliveDF.columns = ["Name", "Age", "Status"]
+    
+    # export to csv
+    aliveDF.to_csv('alive.csv')
 # Function to get citizens who are dead
 def getDead():
     """
@@ -113,6 +131,23 @@ def getDead():
     
     # Return Statement
     dead
+
+# Export Dead to csv
+def deadToCSV():
+    """
+    Objectives: exports to CSV
+    """
+    # Get Dead
+    dead = getDead()
+    
+    # Creates pandas data frame
+    deadDF = pandas.DataFrame(dead)
+    
+    # Create columns
+    deadDF.columns = ["Name", "Age", "Status"]
+    
+    # export to csv
+    deadDF.to_csv('dead.csv')
     
 # Python Incantation
 if __name__ == "__main__":
