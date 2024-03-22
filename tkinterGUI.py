@@ -140,17 +140,17 @@ def kdBtnClick():
     # Iterate through all of the kids
     for kid in kids:
         # Check the age for under 6
-        if kid[1] > 6:
+        if kid[1] < 6:
             # Add to under six counter
             uS += 1
         
         # Check for 6 to 12
-        elif kid[1] > 13:
+        elif kid[1] < 13:
             # Add to the appropriate counter
             uTw += 1
         
         # Check for teens
-        elif kid[1] <= 13:
+        elif kid[1] >= 13:
             # Add to teen counter
             teen += 1
     
