@@ -55,7 +55,8 @@ def createPeople():
             id  INTEGER PRIMARY KEY,
             name    TEXT NOT NULL,
             age     INTEGER,
-            address TEXT NOT NULL
+            address TEXT NOT NULL,
+            status  TEXT NOT NULL
         );
     """
     
@@ -90,16 +91,17 @@ def popPeople():
         (
             name,
             age,
-            address
+            address,
+            status
         )
-        VALUES(?, ?, ?)
+        VALUES(?, ?, ?, ?)
     """
     
     # Make new people with faker
     fake = Faker("en_CA")
     
     # 500 people
-    for fakePerson in range(500):
+    for fakePerson in range(1000):
         fP = (
             # Get name
             fake.name(),
@@ -108,7 +110,10 @@ def popPeople():
             fake.random_int(min=0, max=110),
             
             # Address
-            fake.street_address()
+            fake.street_address(),
+            
+            # Get Status
+            fake.random.choice(("Alive", "Deceased"))
         )
         
         # Execute
