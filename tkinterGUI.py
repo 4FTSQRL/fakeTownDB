@@ -4,19 +4,20 @@ Author: Elicia Ramitt
 Script: tkinterGUI.py
 
 Description: Adding a GUI
+
+Usage: python tkinterGUI.py
 """
 
 # Import Statements
 from tkinter import *
 from maritalStatus import getAdults
 from kids import getChildren
+from PIL import ImageTk, Image
 
 # Main function
 def main():
     # Call create GUI function
     createGUI()
-    
-    
 
 # create GUI function
 def createGUI():
@@ -24,29 +25,34 @@ def createGUI():
     root = Tk()
 
     # Create geometry
-    root.geometry("500x500+100+100")
+    root.geometry("1500x800")
 
     # create Title
     root.title("Fake Town Statistics")
     
-    # Frame Creating
-    frame = Frame(root)
-    # Establish grid for frame
-    frame.grid(row=0, column=0, columnspan=7, rowspan=3)
+    # Create a frame
+    topFrame = Frame(root, width=1500, height=10)
     
+    # Adjust the frame's grid
+    topFrame.grid(row=0, column=0, sticky="NW")
     # Create a Label
-    titleLabel = Label(frame, text="Get Fake Town Statistics")
+    titleLabel = Label(topFrame, text="Get Fake Town Statistics")
     # Establish Grid
-    titleLabel.grid(row=0, column=4)
+    titleLabel.place(relx=0.5, rely=0.5, anchor=CENTER)
+    
+    # Create Button frame
+    buttonFrame = Frame(root, width=1500, height=30)
+    
+    # Adjust the frame's grid
+    buttonFrame.grid(row=1, column=0, sticky="N")
     
     # Add buttons for maritial status and kid stats
-    msBtn = Button(frame, text="Get Marrital Status", command=msBtnClick)
+    msBtn = Button(buttonFrame, text="Get Marital Status", command=msBtnClick)
     # Est. Grid
-    msBtn.grid(row=1, column=2)
-    kdBtn = Button(frame, text="Get Kid Stats", command=kdBtnClick)
+    msBtn.place(relx=0.5, rely=0.5, anchor=W)
+    kdBtn = Button(buttonFrame, text="Get Kid Stats", command=kdBtnClick)
     # Est. Grid
-    kdBtn.grid(row=1,column=7)
-
+    kdBtn.place(relx=0.5, rely=0.5, anchor=E)
     # Run
     root.mainloop()
     
@@ -114,7 +120,7 @@ def kdBtnClick():
     root = Tk()
     
     # Create a new geometry
-    root.geometry("600x100")
+    root.geometry("600x50")
     
     # Create title
     root.title("Statistics for Kids")
