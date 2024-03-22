@@ -28,7 +28,7 @@ def main():
 # User Choice
 def userChoice():
     # Prompt the user to choose an option
-    choice = input("Choose an option from the list belo:\n"
+    choice = input("Choose an option from the list below:\n"
                    "1. Export a list of people who are alive to CSV\n"
                    "2. Export a list of people who are deceased to CSV\n"
                    "3. Exit\n"
@@ -67,8 +67,53 @@ def getAlive():
             # Append to the alive list
             alive.append((person[1], person[2], person[4]))
     
+    # commit and close
+    con.commit()
+    con.close()
+    
     # Return Statement
     alive
+
+# Function to get citizens who are dead
+def getDead():
+    """
+    Description: Searches people for the citzens who are deceased
+    
+    Returns: dead (name, age, status)
+    """
+    
+    # Get the people table
+    people = createPeople()
+    
+    # Connect to dbPath
+    con = sqlite3.connect(dbPath)
+    
+    # Cursor
+    cur = con.cursor()
+    
+    # Execute to get all the data from people
+    cur.execute("SELECT * from people")
+    
+    # Fetch it
+    people = cur.fetchall()
+    
+    # List for dead people
+    dead = []
+    
+    # Search for people who are dead through a for loop
+    for person in people:
+        # Check status
+        if person[4] == "Deceased":
+            # Append to the dead list
+            dead.append((person[1], person[2], person[4]))
+    
+    # commit and close
+    con.commit()
+    con.close()
+    
+    # Return Statement
+    dead
+    
 # Python Incantation
 if __name__ == "__main__":
     main()
