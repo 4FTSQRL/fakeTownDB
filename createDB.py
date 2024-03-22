@@ -113,7 +113,7 @@ def popPeople():
             fake.street_address(),
             
             # Get Status
-            fake.random.choice(("Alive", "Deceased"))
+            fake.random.choice(("Alive", "Alive", "Deceased"))
         )
         
         # Execute
