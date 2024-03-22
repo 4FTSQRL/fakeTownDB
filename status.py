@@ -27,15 +27,37 @@ def main():
 
 # User Choice
 def userChoice():
-    # Prompt the user to choose an option
-    choice = input("Choose an option from the list below:\n"
-                   "1. Export a list of people who are alive to CSV\n"
-                   "2. Export a list of people who are deceased to CSV\n"
-                   "3. Exit\n"
-                   "Enter your choice: ")
-    
-    # Check if choice is 1
-
+    # Set valid to False
+    valid = False
+    # While Valid is False
+    while valid == False:
+        # Prompt the user to choose an option
+        choice = input("Choose an option from the list below:\n"
+                    "1. Export a list of people who are alive to CSV\n"
+                    "2. Export a list of people who are deceased to CSV\n"
+                    "3. Exit\n"
+                    "Enter your choice: ")
+        
+        # Check if choice is 1
+        if choice == "1":
+            # Valid is true
+            valid = True
+            # Run the aliveToCSV function
+            aliveToCSV()
+            
+        # Check if choice is 2
+        elif choice == "2":
+            # Valid is true
+            valid = True
+            # Run deadToCSV function
+            deadToCSV()
+        
+        # Check if choice is 3
+        elif choice == "3":
+            # Valid is true
+            valid = True
+            # Exit
+            exit()
 # Function to get citzens who are alive
 def getAlive():
     """
@@ -74,7 +96,7 @@ def getAlive():
     con.close()
     
     # Return Statement
-    alive
+    return alive
 
 # Export Alive to csv
 def aliveToCSV():
@@ -92,6 +114,7 @@ def aliveToCSV():
     
     # export to csv
     aliveDF.to_csv('alive.csv')
+
 # Function to get citizens who are dead
 def getDead():
     """
@@ -130,7 +153,7 @@ def getDead():
     con.close()
     
     # Return Statement
-    dead
+    return dead
 
 # Export Dead to csv
 def deadToCSV():
