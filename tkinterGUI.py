@@ -43,7 +43,7 @@ def createGUI():
     msBtn = Button(frame, text="Get Marrital Status", command=msBtnClick)
     # Est. Grid
     msBtn.grid(row=1, column=2)
-    kdBtn = Button(frame, text="Get Kid Stats")
+    kdBtn = Button(frame, text="Get Kid Stats", command=kdBtnClick)
     # Est. Grid
     kdBtn.grid(row=1,column=7)
 
@@ -114,8 +114,51 @@ def kdBtnClick():
     root = Tk()
     
     # Create a new geometry
-    root.geometry()
+    root.geometry("600x100")
     
+    # Create title
+    root.title("Statistics for Kids")
+    
+    # Create counter for all kids
+    i = 0
+    
+    # Create counter for kids under 6
+    uS = 0
+    
+    # Create counter for kids 6 to 12
+    uTw = 0
+    
+    # Create counter for teens
+    teen = 0
+    
+    # Iterate through all of the kids
+    for kid in kids:
+        # Check the age for under 6
+        if kid[1] > 6:
+            # Add to under six counter
+            uS += 1
+        
+        # Check for 6 to 12
+        elif kid[1] > 13:
+            # Add to the appropriate counter
+            uTw += 1
+        
+        # Check for teens
+        elif kid[1] <= 13:
+            # Add to teen counter
+            teen += 1
+    
+        # Increment all kid counter
+        i += 1
+    
+    # Get the stats
+    stats = f"There are {i} kids in Fake Town. {uS} of them are 5 and under. {uTw} of them are 6-12. {teen} are teenagers (13-17)."
+    
+    # Put it in a label
+    statLabel = Label(root, text=stats)
+    
+    # Establish grid for the label
+    statLabel.grid(row=2, column=1)
     # Run the root
     root.mainloop()
 # Python Incantation
