@@ -43,9 +43,6 @@ def getChildren():
     # Define cursor
     cur = con.cursor()
     
-    #  Create query
-    people = createPeople()
-    
     # Get certain types of people (ie. people older than 20)
     cur.execute("SELECT * FROM people")
     
