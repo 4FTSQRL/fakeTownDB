@@ -17,21 +17,8 @@ from search import searchName
 
 # Main function
 def main():
-    # Call createview
     # Return statement
     return
-
-def getPersonBtnClick(name):
-    """
-    Description: The actions for the button click for the Get person button
-    """
-    # Search for the person
-    personInfo = searchName(name)
-    
-    # Check if person does not exist
-    if personInfo == "Person does not exist":
-        # Send an error message
-        error['text'] = f"{personInfo}"
         
 # Create root
 root = Tk()
@@ -56,6 +43,21 @@ infoFrame.grid(row=1, column=0, columnspan=4)
 infoFrame['borderwidth'] = 0.5
 topFrame['relief'] = 'sunken'
 
+def getPersonBtnClick(name):
+    """
+    Description: The actions for the button click for the Get person button
+    """
+    # Search for the person
+    personInfo = searchName(name)
+    
+    # Check if person does not exist
+    if personInfo == "Person does not exist":
+        # Open up a new window
+        errWin = Tk()
+        errWin.title("Error")
+        # Set geometry
+        errWin.geometry("200x200+200+200")
+
 # Add a Label to Top Frame to tell user waht to do
 instructLabel = ttk.Label(topFrame, text="Enter a name:")
 # Establish Grid
@@ -68,11 +70,8 @@ nameEntry.grid(row=0, column=1)
 getPersonBtn = ttk.Button(topFrame, text="   Search   ", command=getPersonBtnClick(nameEntry))
 # Establish grid for button
 getPersonBtn.grid(row=0,column=3,padx=(50, 75))
-    
-# Add the labels for the incoming messages
-# Error
-error = ttk.Label()
-# Run the root
+
+# Run root
 root.mainloop()
 
 
