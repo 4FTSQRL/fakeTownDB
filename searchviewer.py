@@ -69,6 +69,11 @@ def getPersonBtnClick(name):
     # Search for the person
     personInfo = searchName(name)
     
+    # Check if person does not exist
+    if searchName == "Person does not exist":
+        # Send an error message
+        error['text'] = f"{searchName}"
+    
 # Python Incantation
 if __name__ == "__main__":
     main()
