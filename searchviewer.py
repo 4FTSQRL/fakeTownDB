@@ -29,14 +29,12 @@ def createViewer():
     root.title("Searching People Database...")
     # Adjusting Geometry
     root.geometry("500x300+200+200")    
-    # Run the root
-    root.mainloop()
     
     # FRAMES
     # Top Frame
     topFrame = ttk.Frame(root)
     # set grid
-    topFrame.grid(row=0, column=0, columnspan=2)
+    topFrame.grid(row=0, column=0, columnspan=3)
     # Add a border
     topFrame['borderwidth'] = 0.5
     topFrame['relief'] = 'sunken'
@@ -48,6 +46,22 @@ def createViewer():
     # Add border
     infoFrame['borderwidth'] = 0.5
     topFrame['relief'] = 'sunken'
+    
+    # Add a Label to Top Frame to tell user waht to do
+    instructLabel = ttk.Label(topFrame, text="Enter a name:")
+    # Establish Grid
+    instructLabel.grid(row=0, column=0, padx=(90,3), pady=(20))
+    # Add an Entry to grab the name from the user
+    nameEntry = ttk.Entry(topFrame)
+    # Establish grid for name
+    nameEntry.grid(row=0, column=1)
+    # Add a button to click after entering the name
+    getPersonBtn = ttk.Button(topFrame, text="   Search   ")
+    # Establish grid for button
+    getPersonBtn.grid(row=0,column=3,padx=(50, 75))
+    # Run the root
+    root.mainloop()
+    
 # Python Incantation
 if __name__ == "__main__":
     main()
