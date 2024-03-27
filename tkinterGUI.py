@@ -70,13 +70,10 @@ def msBtnClick():
     
     # Counter for single
     s = 0
-    
     # Counter for divorced
     d = 0
-    
     # Counter for widowed
     w = 0
-    
     # All adult counter
     i = 0
     # Iterate with foor loop
@@ -85,17 +82,14 @@ def msBtnClick():
         # Check if adult is single
         if adult[2].lower() == "single":
             # Add to single counter
-            s += 1
-            
+            s += 1  
         # Check if adult is divorced
         elif adult[2].lower() == "divorced":
             # Add to divorce counter
             d += 1
-        
         # Else add to widowed counter
         else:
             w += 1
-        
         # increment all adult counter
         i += 1
     
