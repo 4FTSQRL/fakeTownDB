@@ -18,7 +18,7 @@ import sqlite3
 
 # Main function for testing
 def main():
-    print(searchName("Jerry Butler"))
+    print(searchName("your mom"))
     # Return statement
     return
 
@@ -79,9 +79,9 @@ def searchName(person):
             stat = True
     
     # if status of search is still false, give user error
-    if stat == False:
+    if len(personInfo) == 0:
         print("Person does not exist")
-        return False
+        return None
     # Else: return the person info list
     return personInfo
 # Python incantation
