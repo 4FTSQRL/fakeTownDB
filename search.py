@@ -14,13 +14,20 @@ from createDB import scriptDirectory, dbPath, createPeople
     # sqlite3
 import sqlite3
 
-# Main function
+# Main function for testing
 def main():
+    print(searchName("Jerry Butler"))
     # Return statement
     return
 
 # Get all people
 def getPeople():
+    """
+    Description: Gets all people from the database
+    
+    Returns:
+        list: all people
+    """
     # Get all people
     people = createPeople()
     # Connect
@@ -41,11 +48,39 @@ def getPeople():
     return people
 
 # Search for person
-def searchName():
+def searchName(person):
+    """
+    Description: Searches for person
+    
+    Returns: list : descriptions about person
+    """
     # Get all people
     people = getPeople()
+    # personInfo list
+    personInfo = []
+    # Status of search
+    stat = False
     
+    # Search for person via their name
+    for p in people:
+        # Check name
+        if p[1] == person:
+            # Get name
+            personInfo.append(p[1])
+            # Get age
+            personInfo.append(p[2])
+            # Get address
+            personInfo.append(p[3])
+            # Get status
+            personInfo.append(p[4])
+            # Change search status to true
+            stat = True
     
+    # if status of search is still false, give user error
+    if stat == False:
+        return "Person does not exist"
+    # Else: return the person info list
+    return personInfo
 # Python incantation
 if __name__ == "__main__":
     main()
