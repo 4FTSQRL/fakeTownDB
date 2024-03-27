@@ -1,6 +1,8 @@
 """
 Author: Elicia Ramitt
 
+Script: search.py
+
 Description: Allows for the user to search for a person
 
 Usage: python search.py
