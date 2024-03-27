@@ -80,7 +80,8 @@ def searchName(person):
     
     # if status of search is still false, give user error
     if stat == False:
-        return "Person does not exist"
+        print("Person does not exist")
+        return False
     # Else: return the person info list
     return personInfo
 # Python incantation
