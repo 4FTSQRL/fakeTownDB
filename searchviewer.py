@@ -18,49 +18,8 @@ from search import searchName
 # Main function
 def main():
     # Call createview
-    createViewer()
     # Return statement
     return
-
-# Create GUI
-def createViewer():
-    # Create root
-    root = Tk()
-    root.title("Searching People Database...")
-    # Adjusting Geometry
-    root.geometry("500x300+200+200")    
-    
-    # FRAMES
-    # Top Frame
-    topFrame = ttk.Frame(root)
-    # set grid
-    topFrame.grid(row=0, column=0, columnspan=3)
-    # Add a border
-    topFrame['borderwidth'] = 0.5
-    topFrame['relief'] = 'sunken'
-    
-    # Info Frame
-    infoFrame = ttk.Frame(root)
-    # Set grid
-    infoFrame.grid(row=1, column=0, columnspan=4)
-    # Add border
-    infoFrame['borderwidth'] = 0.5
-    topFrame['relief'] = 'sunken'
-    
-    # Add a Label to Top Frame to tell user waht to do
-    instructLabel = ttk.Label(topFrame, text="Enter a name:")
-    # Establish Grid
-    instructLabel.grid(row=0, column=0, padx=(90,3), pady=(20))
-    # Add an Entry to grab the name from the user
-    nameEntry = ttk.Entry(topFrame)
-    # Establish grid for name
-    nameEntry.grid(row=0, column=1)
-    # Add a button to click after entering the name
-    getPersonBtn = ttk.Button(topFrame, text="   Search   ", command=getPersonBtnClick(nameEntry))
-    # Establish grid for button
-    getPersonBtn.grid(row=0,column=3,padx=(50, 75))
-    # Run the root
-    root.mainloop()
 
 def getPersonBtnClick(name):
     """
@@ -70,9 +29,53 @@ def getPersonBtnClick(name):
     personInfo = searchName(name)
     
     # Check if person does not exist
-    if searchName == "Person does not exist":
+    if personInfo == "Person does not exist":
         # Send an error message
-        error['text'] = f"{searchName}"
+        error['text'] = f"{personInfo}"
+        
+# Create root
+root = Tk()
+root.title("Searching People Database...")
+# Adjusting Geometry
+root.geometry("500x300+200+200")    
+
+# FRAMES
+# Top Frame
+topFrame = ttk.Frame(root)
+# set grid
+topFrame.grid(row=0, column=0, columnspan=3)
+# Add a border
+topFrame['borderwidth'] = 0.5
+topFrame['relief'] = 'sunken'
+
+# Info Frame
+infoFrame = ttk.Frame(root)
+# Set grid
+infoFrame.grid(row=1, column=0, columnspan=4)
+# Add border
+infoFrame['borderwidth'] = 0.5
+topFrame['relief'] = 'sunken'
+
+# Add a Label to Top Frame to tell user waht to do
+instructLabel = ttk.Label(topFrame, text="Enter a name:")
+# Establish Grid
+instructLabel.grid(row=0, column=0, padx=(90,3), pady=(20))
+# Add an Entry to grab the name from the user
+nameEntry = ttk.Entry(topFrame)
+# Establish grid for name
+nameEntry.grid(row=0, column=1)
+# Add a button to click after entering the name
+getPersonBtn = ttk.Button(topFrame, text="   Search   ", command=getPersonBtnClick(nameEntry))
+# Establish grid for button
+getPersonBtn.grid(row=0,column=3,padx=(50, 75))
+    
+# Add the labels for the incoming messages
+# Error
+error = ttk.Label()
+# Run the root
+root.mainloop()
+
+
     
 # Python Incantation
 if __name__ == "__main__":
