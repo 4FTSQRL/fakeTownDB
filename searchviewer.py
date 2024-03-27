@@ -56,11 +56,18 @@ def createViewer():
     # Establish grid for name
     nameEntry.grid(row=0, column=1)
     # Add a button to click after entering the name
-    getPersonBtn = ttk.Button(topFrame, text="   Search   ")
+    getPersonBtn = ttk.Button(topFrame, text="   Search   ", command=getPersonBtnClick(nameEntry))
     # Establish grid for button
     getPersonBtn.grid(row=0,column=3,padx=(50, 75))
     # Run the root
     root.mainloop()
+
+def getPersonBtnClick(name):
+    """
+    Description: The actions for the button click for the Get person button
+    """
+    # Search for the person
+    personInfo = searchName(name)
     
 # Python Incantation
 if __name__ == "__main__":
